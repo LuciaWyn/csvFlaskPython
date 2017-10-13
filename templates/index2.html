@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+		<title>Rentals</title>
+		<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static',filename='images/favicon.ico') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    </head>
+    <body>
+		<header class="head">
+		<img id="icon" src="{{ url_for('static',filename='images/icon.svg') }}" alt="logo" width="64px" height="64px"/>
+		<h1>Rentals</h1>
+		</header>
+		<nav>
+			<a href="{{url_for('index')}}"><div>Home</div></a>
+			<a href="{{url_for('lease')}}"><div>Ascending Order</div></a>
+			<a href="{{url_for('rent')}}"><div>Total Rent</div></a>
+			<a href="{{url_for('top5')}}"><div>Top 5 results</div></a>
+			<a href="{{url_for('tenants')}}"><div>Tenants</div></a>
+			<a href="{{url_for('add')}}"><div>Add Record</div></a>
+			<a href="{{url_for('times')}}"><div>Time Frame</div></a>
+		</nav>
+		
+		<main id="main">
+		<h2>{{p}}</h2>
+			{{t|safe}}
+			<p id="demo"></p>
+		</main>
+</body>
+</html>

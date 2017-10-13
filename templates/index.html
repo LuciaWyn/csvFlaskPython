@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.icon">
+    </head>
+    <body>
+		<header>
+		<img src="icon.svg" alt="logo" width="64px" height="64px"/>
+		<h1>Rentals</h1>
+		</header>
+		<nav>
+			<a href="{{url_for('index')}}"><div>Home</div></a>
+			<a href="{{url_for('lease')}}"><div>Total Rent</div></a>
+			<a href="{{url_for('top5asc')}}"><div>5 asc</div></a>
+			<a href="{{url_for('top5dec')}}"><div>5 des</div></a>
+		</nav>
+
+		<main id="main">
+		<!--{{lock}}-->
+		  <table border = 1>
+         {% for Name, Address1 in result.iteritems() %}
+         
+            <tr>
+               <th> {{ Name }} </th>
+               <td> {{ Address1 }} </td>
+            </tr>
+            
+         {% endfor %}
+      </table>
+		
+		
+		</main>
+		<script>
+		</script>
+    </body>
+</html>

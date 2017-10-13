@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+		<title>Rentals</title>
+		<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static',filename='images/favicon.ico') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+		//$(document).ready(function(){
+		var JSONstr ='{{jd|safe}}';
+		
+		var JSONObject = JSON.parse(JSONstr);
+		 
+		 var t = {{ct}};
+		</script>
+		<script>
+$(document).ready(function(){
+	for (var s = 0; s <= t; s++){
+		$("main").append("<div id=entry"+s+" class=entry></div>");
+		$('#entry'+s).append("<h3>Name: "+(JSONObject[s]["Name"])+"</h3><p>Address:");
+		if ((JSONObject[s]["Address1"]) != null){
+			$('#entry'+s).append((JSONObject[s]["Address1"])+"</br>");
+		}
+		if ((JSONObject[s]["Address2"]) != null){
+			$('#entry'+s).append((JSONObject[s]["Address2"])+"</br>");
+		}
+		if ((JSONObject[s]["Address3"]) != null){
+			$('#entry'+s).append((JSONObject[s]["Address3"])+"</br>");
+		}
+		if ((JSONObject[s]["Address4"]) != null){
+			$('#entry'+s).append((JSONObject[s]["Address4"])+"</br>");
+		}
+		$('#entry'+s).append("</p>");
+		$('#entry'+s).append("Unit: "+(JSONObject[s]["Unit"])+"</br>");
+		if ((JSONObject[s]["LeaseStart"]) != null){
+			$('#entry'+s).append("Lease Start: "+(JSONObject[s]["LeaseStart"])+"</br>");
+			$('#entry'+s).append("Lease End: "+(JSONObject[s]["LeaseEnd"])+"</br>");
+		}
+		else{
+			$('#entry'+s).append("Lease Start: "+(JSONObject[s]["Start"])+"</br>");
+			$('#entry'+s).append("Lease End: "+(JSONObject[s]["End"])+"</br>");
+		}
+		
+		$('#entry'+s).append("Lease Years: "+(JSONObject[s]["LeaseYears"])+"</br>");
+		$('#entry'+s).append("Rent: £"+(JSONObject[s]["Rent"]));
+		//$('#entry'+s).append("<p>Address: "+(JSONObject[s]["Address1"])+"</br>"+(JSONObject[s]["Address2"])+"<br/>"+(JSONObject[s]["Address3"])+"<br/>"+(JSONObject[s]["Address4"])+"</p>");
+	}
+	//$("main").append();
+});
+</script>
+    </head>
+    <body>
+		<header class="head">
+		<img id="icon" src="{{ url_for('static',filename='images/icon.svg') }}" alt="logo" width="64px" height="64px"/>
+		<h1>Rentals</h1>
+		</header>
+		<nav>
+			<a href="{{url_for('index')}}"><div>Home</div></a>
+			<a href="{{url_for('lease')}}"><div>Ascending Order</div></a>
+			<a href="{{url_for('rent')}}"><div>Total Rent</div></a>
+			<a href="{{url_for('top5')}}"><div>Top 5 results</div></a>
+			<a href="{{url_for('tenants')}}"><div>Tenants</div></a>
+			<a href="{{url_for('add')}}"><div>Add Record</div></a>
+			<a href="{{url_for('times')}}"><div>Time Frame</div></a>
+		</nav>
+		
+		<main id="main">
+		<h2>{{p}}</h2>
+		<a href="{{url_for('top5asc')}}"><p>Ascending order</p></a href>
+		<a href="{{url_for('top5dec')}}"><p>Descending order</p></a href>
+			{{t}}
+		</main>
+</body>
+</html>

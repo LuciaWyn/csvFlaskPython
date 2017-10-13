@@ -1,0 +1,13 @@
+.entry{
+	line-height:105%;
+	border: 2px solid blue;
+	width: 300px;
+	padding: 10px;
+	font-family: arial;
+	display: inline-grid;
+	margin:10px;
+}
+body{
+	width:70%;
+	margin-left:15%;
+}
