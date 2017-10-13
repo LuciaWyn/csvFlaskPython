@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+		<title>Rentals</title>
+		<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static',filename='images/favicon.ico') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    </head>
+    <body>
+		<header class="head">
+		<img id="icon" src="{{ url_for('static',filename='images/icon.svg') }}" alt="logo" width="64px" height="64px"/>
+		<h1>Rentals</h1>
+		</header>
+		<nav>
+			<a href="{{url_for('index')}}"><div>Home</div></a>
+			<a href="{{url_for('lease')}}"><div>Ascending Order</div></a>
+			<a href="{{url_for('rent')}}"><div>Total Rent</div></a>
+			<a href="{{url_for('top5')}}"><div>Top 5 results</div></a>
+			<a href="{{url_for('tenants')}}"><div>Tenants</div></a>
+		</nav>
+		
+		<main id="main">
+		<h2>Add new Record</h2>
+			<form action="{{url_for('added')}}" method="post">
+			<table>
+			<tr>
+				<td><lable>*Name:</lable></td><td><input type="text" name="name" required></input></td>
+				</tr>
+				<tr>
+				<td>
+				<lable>Address:</lable></td><td><input type="text" name="adr1"></input></td>
+				</tr>
+				<tr>
+				<td></td>
+				<td>
+				<input type="text" name="adr2"></input>
+				</td>
+				</tr>
+				<tr>
+				<td></td>
+				<td>
+				<input type="text" name="adr3"></input>
+				</td>
+				</tr>
+				<tr>
+				<td></td>
+				<td>
+				<input type="text" name="adr4"></input>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<lable>*Unit:</lable></td><td><input type="text" name="unit" required></input>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<lable>*Tenant:</lable></td><td><input type="text" name="tenant" required></input></td>
+				</tr>
+				<tr>
+				<td>
+				<lable>*Lease Start</lable>
+				</td>
+				<td>
+				<input type="number" name="sd" maxlength="2" size="2" required></input>&#8725;
+				<select name="sm" required>
+				  <option value="Jan">January</option>
+				  <option value="Feb">February</option>
+				  <option value="Mar">March</option>
+				  <option value="Apr">April</option>
+				  <option value="May">May</option>
+				  <option value="Jun">Jun</option>
+				  <option value="Jul">July</option>
+				  <option value="Aug">August</option>
+				  <option value="Sep">September</option>
+				  <option value="Oct">October</option>
+				  <option value="Nov">November</option>
+				  <option value="Dec">December</option>
+				</select>
+				&#8725;
+				<input type="number" name="sy" maxlength="4" size="4" required></input>
+				<td>
+				</tr>
+				<tr>
+				<td>
+				<lable>*Lease End</lable>
+				</td>
+				<td>
+				<input type="number" name="ed" maxlength="2" size="2" required></input>&#8725;
+				<select name="em" required>
+				  <option value="Jan">January</option>
+				  <option value="Feb">February</option>
+				  <option value="Mar">March</option>
+				  <option value="Apr">April</option>
+				  <option value="May">May</option>
+				  <option value="Jun">Jun</option>
+				  <option value="Jul">July</option>
+				  <option value="Aug">August</option>
+				  <option value="Sep">September</option>
+				  <option value="Oct">October</option>
+				  <option value="Nov">November</option>
+				  <option value="Dec">December</option>
+				</select>
+				&#8725;
+				<input type="number" name="ey" maxlength="4" size="4" required></input>
+				<td>
+				</tr>
+				<tr>
+				<td>
+				<lable>*Lease year:</lable></td><td><input type="Number" name="year" required></input></td>
+				</tr>
+				<tr>
+				<td>
+				<lable>*Rent:</lable></td><td><input type="Number" name="rent" required></input></td></tr>
+				<table>
+				<input type="submit">
+			</form>
+			<p>* Required field</p>
+		</main>
+</body>
